@@ -1,56 +1,58 @@
-// script.js
-fetch('jogos.json')
-   .then(response => {
-       if (!response.ok) {
-           throw new Error(`HTTP error! Status: ${response.status}`);
-       }
-       return response.json();
-   })
-   .then(data => {
-       const gameList = document.getElementById('game-list');
-       const loadingMessage = document.getElementById('loading-message');
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('jogos.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const gameList = document.getElementById('game-list');
+            const loadingMessage = document.getElementById('loading-message');
 
-       if (loadingMessage) loadingMessage.remove(); // Remove loading message
+            if (loadingMessage) loadingMessage.remove(); // Remove mensagem de carregamento
 
-       if (data.jogos && data.jogos.length > 0) {
-           data.jogos.forEach(jogo => {
-               const listItem = document.createElement('div');
-               listItem.classList.add('game-item');
+            if (data.jogos && data.jogos.length > 0) {
+                data.jogos.forEach(jogo => {
+                    const listItem = document.createElement('div');
+                    listItem.classList.add('game-item');
 
-               // Game image (you can add images to jogos.json)
-               const gameImage = document.createElement('img');
-               gameImage.src = `images/${jogo.file.replace('.swf', '.jpg')}`; // Assuming images are stored with the same name as the game file
-               gameImage.alt = jogo.name;
+                    // Verifica se há imagem, senão usa uma imagem padrão
+                    const gameImage = document.createElement('img');
+                    const imagePath = `images/${jogo.file.replace('.swf', '.jpg')}`;
+                    
+                    gameImage.src = imagePath;
+                    gameImage.alt = jogo.name;
+                    gameImage.onerror = () => gameImage.src = 'images/default.jpg'; // Imagem padrão se não carregar
 
-               // Game title
-               const gameTitle = document.createElement('h2');
-               gameTitle.textContent = jogo.name;
+                    // Título do jogo
+                    const gameTitle = document.createElement('h2');
+                    gameTitle.textContent = jogo.name;
 
-               // Game description (add descriptions to jogos.json if needed)
-               const gameDescription = document.createElement('p');
-               gameDescription.textContent = jogo.description || 'Descrição não disponível';
+                    // Descrição do jogo
+                    const gameDescription = document.createElement('p');
+                    gameDescription.textContent = jogo.description || 'Descrição não disponível';
 
-               // Game link
-               const gameLink = document.createElement('a');
-               gameLink.href = `jogo.html?file=${encodeURIComponent(jogo.file)}`;
-               gameLink.textContent = 'Jogar agora';
-               gameLink.classList.add('game-link');
+                    // Link para jogar
+                    const gameLink = document.createElement('a');
+                    gameLink.href = `jogo.html?file=${encodeURIComponent(jogo.file)}`;
+                    gameLink.textContent = 'Jogar agora';
+                    gameLink.classList.add('game-link');
 
-               listItem.appendChild(gameImage);
-               listItem.appendChild(gameTitle);
-               listItem.appendChild(gameDescription);
-               listItem.appendChild(gameLink);
-               gameList.appendChild(listItem);
-           });
-       } else {
-           const noGamesMessage = document.createElement('p');
-           noGamesMessage.textContent = 'Nenhum jogo disponível no momento.';
-           noGamesMessage.classList.add('no-games-message');
-           gameList.appendChild(noGamesMessage);
-       }
-   })
-   .catch(error => {
-       console.error('Erro ao carregar os jogos:', error);
-       const gameList = document.getElementById('game-list');
-       gameList.innerHTML = '<p class="error-message">Erro ao carregar os jogos. Tente novamente mais tarde.</p>';
-   });
+                    // Adiciona elementos ao container
+                    listItem.appendChild(gameImage);
+                    listItem.appendChild(gameTitle);
+                    listItem.appendChild(gameDescription);
+                    listItem.appendChild(gameLink);
+                    gameList.appendChild(listItem);
+                });
+            } else {
+                gameList.innerHTML = '<p class="no-games-message">Nenhum jogo disponível no momento.</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar os jogos:', error);
+            const gameList = document.getElementById('game-list');
+            gameList.innerHTML = '<p class="error-message">Erro ao carregar os jogos. Verifique sua conexão e tente novamente.</p>';
+        });
+});
