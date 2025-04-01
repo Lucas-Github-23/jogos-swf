@@ -101,10 +101,6 @@
                gameObject.replaceWith(rufflePlayer);
                rufflePlayer.load({ url: `jogos/${file}` });
 
-               // Ajustando tamanho baseado no jogo
-               rufflePlayer.style.width = "800px";
-               rufflePlayer.style.height = "600px";
-
                // Adicionando funcionalidade de tela cheia
                document.getElementById('fullscreen-btn').addEventListener('click', () => {
                    if (!document.fullscreenElement) {
