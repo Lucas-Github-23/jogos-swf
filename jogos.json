@@ -10,13 +10,13 @@
             "name": "Fancy Pants Adventure", 
             "file": "fancypantsadventure3.swf",
             "description": "Um jogo de aventura com ação e desafios emocionantes.",
-            "image": "fancy-pants-3.jpg"
+            "image": "fancypantsadventure3.jpg"
         },
         { 
             "name": "Min hero", 
             "file": "min-hero-tower-of-sages.swf",
             "description": "min hero",
-            "image": "min-hero.jpeg"
+            "image": "min-hero-tower-of-sages.jpeg"
         }
     ]
  }
