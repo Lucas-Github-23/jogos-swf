@@ -7,113 +7,32 @@
    <link rel="stylesheet" href="style.css">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-   <script src="https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle"></script>
-   <style>
-       body {
-           font-family: 'Roboto', sans-serif;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           min-height: 100vh;
-           background-color: #121212;
-           color: white;
-           text-align: center;
-           margin: 0;
-       }
-       header {
-           margin-bottom: 20px;
-       }
-       #game-container {
-           position: relative;
-           background: #222;
-           border-radius: 10px;
-           padding: 10px;
-           box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           max-width: 850px;
-           width: 100%;
-       }
-       #flash-game {
-           width: 100%;
-           height: 600px;
-           max-width: 800px;
-           border-radius: 5px;
-           background: black;
-       }
-       .controls {
-           display: flex;
-           justify-content: center;
-           margin-top: 10px;
-       }
-       .btn {
-           background-color: #007AFF;
-           border: none;
-           color: white;
-           padding: 10px 15px;
-           font-size: 16px;
-           border-radius: 5px;
-           cursor: pointer;
-           margin: 5px;
-           transition: 0.3s;
-       }
-       .btn:hover {
-           background-color: #005FCC;
-       }
-   </style>
 </head>
 <body>
-
    <header>
        <h1>Flash Game</h1>
    </header>
-
    <main>
        <div id="game-container">
-           <object id="flash-game" data="" type="application/x-shockwave-flash">
+           <script src="https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle"></script>
+           <object id="flash-game" data="" type="application/x-shockwave-flash" width="800" height="600">
                <param name="wmode" value="transparent">
            </object>
-           <div class="controls">
-               <button class="btn" id="fullscreen-btn">Tela Cheia</button>
-           </div>
        </div>
    </main>
-
    <footer>
        <p>&copy; 2025 Flash Game Hub. Todos os direitos reservados.</p>
    </footer>
-
    <script>
        const params = new URLSearchParams(window.location.search);
        const file = params.get('file');
-       const gameObject = document.getElementById('flash-game');
 
        if (file) {
-           gameObject.setAttribute('data', `jogos/${file}`);
-
-           // Melhorando infraestrutura do Ruffle
-           window.addEventListener("DOMContentLoaded", () => {
-               const ruffle = window.RufflePlayer();
-               const rufflePlayer = ruffle.createPlayer();
-               gameObject.replaceWith(rufflePlayer);
-               rufflePlayer.load({ url: `jogos/${file}` });
-
-               // Adicionando funcionalidade de tela cheia
-               document.getElementById('fullscreen-btn').addEventListener('click', () => {
-                   if (!document.fullscreenElement) {
-                       rufflePlayer.requestFullscreen();
-                   } else {
-                       document.exitFullscreen();
-                   }
-               });
-           });
+           const gameObject = document.getElementById('flash-game');
+           gameObject.setAttribute('data', jogos/${file});
        } else {
            document.body.innerHTML = '<p class="error-message">Erro: Jogo não encontrado!</p>';
        }
    </script>
-
 </body>
-</html>
+</html> 
