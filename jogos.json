@@ -17,6 +17,12 @@
             "file": "min-hero-tower-of-sages.swf",
             "description": "min hero",
             "image": "min-hero-tower-of-sages.jpeg"
+        },
+        { 
+            "name": "The King of Fighters Wing 1.3", 
+            "file": "King_of_Fighters_3.swf",
+            "description": "kof",
+            "image": "min-hero-tower-of-sages.jpeg"
         }
     ]
  }
