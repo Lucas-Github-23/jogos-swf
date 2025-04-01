@@ -13,16 +13,16 @@
             "image": "fancypantsadventure3.jpg"
         },
         { 
-            "name": "Min hero", 
+            "name": "Min Hero: Tower of Sages", 
             "file": "min-hero-tower-of-sages.swf",
-            "description": "min hero",
-            "image": "min-hero-tower-of-sages.jpeg"
+            "description": "Treine criaturas mágicas e enfrente desafios épicos em uma torre cheia de perigos.",
+            "image": "min-hero-tower-of-sages.jpg"
         },
         { 
             "name": "The King of Fighters Wing 1.3", 
             "file": "King_of_Fighters_3.swf",
-            "description": "kof",
-            "image": "#"
+            "description": "Jogo de luta inspirado na famosa franquia The King of Fighters.",
+            "image": "default.jpg"
         }
     ]
- }
+}
