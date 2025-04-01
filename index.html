@@ -1,21 +1,29 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo em Flash com Ruffle</title>
-    <!-- Script do Ruffle -->
-    <script src="ruffle/ruffle.js"></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Flash Game Loader</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Código do Jogo em Flash -->
-    <object
-        type="application/x-shockwave-flash"
-        data="big-head-football.swf"
-        width="800"
-        height="600">
-        <!-- Mensagem caso o Ruffle não funcione -->
-        <p>O jogo não pode ser carregado. Verifique se o Ruffle está funcionando corretamente.</p>
-    </object>
+   <header>
+       <h1>Flash Games</h1>
+   </header>
+   <main>
+       <div id="game-list-container">
+           <p id="loading-message">Carregando jogos...</p>
+           <div id="game-list" class="game-grid">
+               <!-- Games will be dynamically populated here -->
+           </div>
+       </div>
+   </main>
+   <footer>
+       <p>&copy; 2025 Flash Game Hub. Todos os direitos reservados.</p>
+   </footer>
+   <script src="script.js"></script>
 </body>
 </html>

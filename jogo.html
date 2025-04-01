@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Play Flash Game</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <header>
+       <h1>Flash Game</h1>
+   </header>
+   <main>
+       <div id="game-container">
+           <script src="https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle"></script>
+           <object id="flash-game" data="" type="application/x-shockwave-flash" width="800" height="600">
+               <param name="wmode" value="transparent">
+           </object>
+       </div>
+   </main>
+   <footer>
+       <p>&copy; 2025 Flash Game Hub. Todos os direitos reservados.</p>
+   </footer>
+   <script>
+       const params = new URLSearchParams(window.location.search);
+       const file = params.get('file');
+
+       if (file) {
+           const gameObject = document.getElementById('flash-game');
+           gameObject.setAttribute('data', `jogos/${file}`);
+       } else {
+           document.body.innerHTML = '<p class="error-message">Erro: Jogo não encontrado!</p>';
+       }
+   </script>
+</body>
+</html>

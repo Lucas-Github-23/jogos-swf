@@ -1,0 +1,22 @@
+{
+    "jogos": [
+        { 
+            "name": "Big Head Football", 
+            "file": "big-head-football.swf",
+            "description": "Jogo de futebol com cabeças grandes e jogabilidade divertida.",
+            "image": "big-head-football.jpg"
+        },
+        { 
+            "name": "Fancy Pants Adventure", 
+            "file": "fancypantsadventure3.swf",
+            "description": "Um jogo de aventura com ação e desafios emocionantes.",
+            "image": "fancy-pants-3.jpg"
+        },
+        { 
+            "name": "Min hero", 
+            "file": "min-hero-tower-of-sages.swf",
+            "description": "min hero",
+            "image": "min-hero.jpeg"
+        }
+    ]
+ }
