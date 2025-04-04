@@ -24,15 +24,16 @@
        <p>&copy; 2025 Flash Game Hub. Todos os direitos reservados.</p>
    </footer>
    <script>
-       const params = new URLSearchParams(window.location.search);
-       const file = params.get('file');
+       document.addEventListener('DOMContentLoaded', () => {
+           const params = new URLSearchParams(window.location.search);
+           const file = params.get('file');
 
-       if (file) {
-           const gameObject = document.getElementById('flash-game');
-           gameObject.setAttribute('data', jogos/${file});
-       } else {
-           document.body.innerHTML = '<p class="error-message">Erro: Jogo não encontrado!</p>';
-       }
+           if (file) {
+               document.getElementById('flash-game').setAttribute('data', "jogos/" + file);
+           } else {
+               document.body.innerHTML = '<p class="error-message">Erro: Jogo não encontrado!</p>';
+           }
+       });
    </script>
 </body>
-</html> 
+</html>
