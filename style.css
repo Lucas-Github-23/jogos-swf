@@ -1,77 +1,76 @@
-/* style.css */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
- }
- 
- header {
+}
+
+header {
     background-color: #0077cc;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
- }
- 
- h1 {
+}
+
+h1 {
     margin: 0;
     font-size: 2rem;
- }
- 
- main {
+}
+
+main {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
- }
- 
- #game-list-container {
+}
+
+#game-list-container {
     display: flex;
     flex-direction: column;
     align-items: center;
- }
- 
- .game-grid {
+}
+
+.game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
     margin-top: 20px;
- }
- 
- .game-item {
+}
+
+.game-item {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease-in-out;
- }
- 
- .game-item:hover {
+}
+
+.game-item:hover {
     transform: translateY(-10px);
- }
- 
- .game-item img {
+}
+
+.game-item img {
     width: 100%;
     height: 180px;
     object-fit: cover;
     border-bottom: 2px solid #0077cc;
- }
- 
- .game-item h2 {
+}
+
+.game-item h2 {
     font-size: 1.2rem;
     color: #0077cc;
     padding: 10px 0;
- }
- 
- .game-item p {
+}
+
+.game-item p {
     font-size: 1rem;
     padding: 0 15px;
     color: #666;
- }
- 
- .game-link {
+}
+
+.game-link {
     text-decoration: none;
     color: #fff;
     background-color: #0077cc;
@@ -79,19 +78,19 @@ body {
     border-radius: 4px;
     margin-bottom: 15px;
     display: inline-block;
- }
- 
- .game-link:hover {
+}
+
+.game-link:hover {
     background-color: #005fa3;
- }
- 
- .error-message, .no-games-message, #loading-message {
+}
+
+.error-message, .no-games-message, #loading-message {
     text-align: center;
     font-size: 1.2rem;
     color: #ff0000;
- }
- 
- footer {
+}
+
+footer {
     text-align: center;
     padding: 1rem;
     background-color: #333;
@@ -99,5 +98,4 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
- }
- 
+}
