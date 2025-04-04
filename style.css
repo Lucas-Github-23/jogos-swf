@@ -45,6 +45,12 @@ main {
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 350px; /* Garante que todas as caixas tenham o mesmo tamanho */
+    padding-bottom: 10px;
 }
 
 .game-item:hover {
@@ -68,6 +74,7 @@ main {
     font-size: 1rem;
     padding: 0 15px;
     color: #666;
+    flex-grow: 1; /* Faz com que a descrição ocupe o espaço disponível */
 }
 
 .game-link {
@@ -76,8 +83,12 @@ main {
     background-color: #0077cc;
     padding: 10px 20px;
     border-radius: 4px;
-    margin-bottom: 15px;
-    display: inline-block;
+    margin-top: auto; /* Mantém o botão sempre na parte inferior */
+    display: block;
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .game-link:hover {
