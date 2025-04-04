@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('jogos.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error(`Erro HTTP! Status: ${response.status}`);
             }
             return response.json();
         })
@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     const listItem = document.createElement('div');
                     listItem.classList.add('game-item');
 
-                    // Verifica se há imagem, senão usa uma imagem padrão
+                    // Imagem do jogo ou imagem padrão
                     const gameImage = document.createElement('img');
                     const imagePath = `images/${jogo.file.replace('.swf', '.jpg')}`;
-                    
+
                     gameImage.src = imagePath;
                     gameImage.alt = jogo.name;
-                    gameImage.onerror = () => gameImage.src = 'images/default.jpg'; // Imagem padrão se não carregar
+                    gameImage.onerror = () => gameImage.src = 'images/default.jpg';
 
                     // Título do jogo
                     const gameTitle = document.createElement('h2');
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Erro ao carregar os jogos:', error);
-            const gameList = document.getElementById('game-list');
-            gameList.innerHTML = '<p class="error-message">Erro ao carregar os jogos. Verifique sua conexão e tente novamente.</p>';
+            document.getElementById('game-list').innerHTML =
+                '<p class="error-message">Erro ao carregar os jogos. Verifique sua conexão e tente novamente.</p>';
         });
 });
