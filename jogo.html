@@ -14,10 +14,10 @@
    </header>
    <main>
        <div id="game-container">
-           <script src="https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle"></script>
-           <object id="flash-game" data="" type="application/x-shockwave-flash" width="800" height="600">
-               <param name="wmode" value="transparent">
-           </object>
+           <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+           <div id="ruffle-container">
+               <!-- O Ruffle irá substituir este conteúdo -->
+           </div>
        </div>
    </main>
    <footer>
@@ -29,11 +29,21 @@
            const file = params.get('file');
 
            if (file) {
-               document.getElementById('flash-game').setAttribute('data', "jogos/" + file);
+               const container = document.getElementById('ruffle-container');
+               const ruffle = window.RufflePlayer.newest(); // Carrega a versão mais recente do Ruffle
+               const player = ruffle.createPlayer();
+
+               player.style.width = "800px";
+               player.style.height = "600px";
+               container.appendChild(player);
+
+               player.load("jogos/" + file);
            } else {
                document.body.innerHTML = '<p class="error-message">Erro: Jogo não encontrado!</p>';
            }
        });
    </script>
 </body>
+</html>
+
 </html>
