@@ -7,43 +7,112 @@
    <link rel="stylesheet" href="style.css">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+   <style>
+       body {
+           font-family: 'Roboto', sans-serif;
+           margin: 0;
+           background-color: #111;
+           color: white;
+           display: flex;
+           flex-direction: column;
+           min-height: 100vh;
+           align-items: center;
+       }
+
+       header, footer {
+           text-align: center;
+           padding: 20px;
+       }
+
+       #game-container {
+           margin: 20px 0;
+           position: relative;
+       }
+
+       #controls {
+           position: absolute;
+           top: 10px;
+           right: 10px;
+           z-index: 10;
+       }
+
+       #controls button {
+           background: #222;
+           color: white;
+           border: none;
+           padding: 10px;
+           margin-left: 5px;
+           cursor: pointer;
+           border-radius: 5px;
+           font-size: 14px;
+       }
+   </style>
 </head>
 <body>
    <header>
        <h1>Flash Game</h1>
    </header>
+
    <main>
        <div id="game-container">
-           <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+           <!-- Botões -->
+           <div id="controls">
+               <button id="fullscreenBtn">🔲 Fullscreen</button>
+               <button id="soundToggleBtn">🔇 Toggle Sound</button>
+           </div>
+
            <div id="ruffle-container">
                <!-- O Ruffle irá substituir este conteúdo -->
            </div>
        </div>
    </main>
+
    <footer>
        <p>&copy; 2025 Flash Game Hub. Todos os direitos reservados.</p>
    </footer>
+
    <script>
+       let rufflePlayer = null;
+
        document.addEventListener('DOMContentLoaded', () => {
            const params = new URLSearchParams(window.location.search);
            const file = params.get('file');
 
            if (file) {
                const container = document.getElementById('ruffle-container');
-               const ruffle = window.RufflePlayer.newest(); // Carrega a versão mais recente do Ruffle
-               const player = ruffle.createPlayer();
+               const ruffle = window.RufflePlayer.newest();
+               rufflePlayer = ruffle.createPlayer();
 
-               player.style.width = "800px";
-               player.style.height = "600px";
-               container.appendChild(player);
+               rufflePlayer.style.width = "800px";
+               rufflePlayer.style.height = "600px";
+               container.appendChild(rufflePlayer);
 
-               player.load("jogos/" + file);
+               rufflePlayer.load("jogos/" + file);
            } else {
                document.body.innerHTML = '<p class="error-message">Erro: Jogo não encontrado!</p>';
            }
        });
+
+       // Botão fullscreen
+       document.getElementById('fullscreenBtn').addEventListener('click', () => {
+           if (rufflePlayer) {
+               if (document.fullscreenElement) {
+                   document.exitFullscreen();
+               } else {
+                   rufflePlayer.requestFullscreen();
+               }
+           }
+       });
+
+       // Botão mute/unmute
+       let muted = false;
+       document.getElementById('soundToggleBtn').addEventListener('click', () => {
+           if (rufflePlayer) {
+               muted = !muted;
+               rufflePlayer.setMuted(muted);
+           }
+       });
    </script>
 </body>
-</html>
-
 </html>
