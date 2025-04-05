@@ -101,6 +101,18 @@
             "file": "min-hero-tower-of-sages.swf",
             "description": "Treine criaturas mágicas e enfrente desafios épicos em uma torre cheia de perigos.",
             "image": "min-hero-tower-of-sages.jpg"
+        },
+        {
+            "name": "The King of Fighters Wing 1.91",
+            "file": "kof_wing_1-91.swf",
+            "description": "Atualização do jogo de luta inspirado na franquia The King of Fighters.",
+            "image": "default.jpg"
+        },
+        {
+            "name": "The King of Fighters Wing EX 1.0",
+            "file": "kof_wing_ex_v1_0.swf",
+            "description": "Atualização do jogo de luta inspirado na franquia The King of Fighters.",
+            "image": "default.jpg"
         }
     ]
 }
