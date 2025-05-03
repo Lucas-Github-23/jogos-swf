@@ -79,8 +79,8 @@
             "image": "big-head-football.jpg"
         },
         { 
-            "name": "Bleach vs Naruto 2.4", 
-            "file": "bleach-vs-naruto-v2-4.swf",
+            "name": "Bleach vs Naruto v3.3", 
+            "file": "bvn33.swf",
             "description": "Batalha épica entre personagens de Bleach e Naruto.",
             "image": "default.jpg"
         },
@@ -103,8 +103,8 @@
             "image": "min-hero-tower-of-sages.jpg"
         },
         {
-            "name": "The King of Fighters Wing 1.91",
-            "file": "kof_wing_1-91.swf",
+            "name": "The King of Fighters 1.9",
+            "file": "kof19.swf",
             "description": "Atualização do jogo de luta inspirado na franquia The King of Fighters.",
             "image": "default.jpg"
         },
